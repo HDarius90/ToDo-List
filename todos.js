@@ -12,28 +12,28 @@
 //type anyithinbg else nothing heapens
 //quit - console - OK, YOU QUIT THE APP
 let todos = ['WRITE CODE'];
-let input = "";
-while(!input){
-    input = prompt("What would you like to do?");
-    if (input.toLowerCase() === "quit"){
-        console.log("OK, YOU QUIT THE APP");
-        break;
-    }
-    if (input.toLowerCase() === "new"){
+let input = prompt("What would you like to do?");
+while (input.toLowerCase() !== "quit" && input.toLowerCase() !== "q") {
+    if (input.toLowerCase() === "new") {
         let newTodo = prompt("Enter new todo");
         todos.push(newTodo);
         console.log(`${newTodo} added to list`);
-    }
-    if (input.toLowerCase() === "list"){
-       for(let i = 0; i < todos.length; i++){
-        console.log(`${i+1}: ${todos[i]}`);
-       }
-    }
-    if (input.toLowerCase() === "delete"){
+        input = prompt("What would you like to do?");
+
+    } else if (input.toLowerCase() === "list") {
+        for (let i = 0; i < todos.length; i++) {
+            console.log(`${i + 1}: ${todos[i]}`);
+        }
+        input = prompt("What would you like to do?");
+
+    } else if (input.toLowerCase() === "delete") {
         let indexOfDelete = prompt("Enter index of todo to delete");
         todos.splice(parseInt(indexOfDelete) - 1, 1);
         console.log("Todo Removed");
-    }
+        input = prompt("What would you like to do?");
 
-    input = "";
+    } else {
+        input = prompt("What would you like to do?");
+    }
 }
+console.log("OK, YOU QUIT THE APP");
