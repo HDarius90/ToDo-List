@@ -11,7 +11,7 @@
 //console - Todo Removed
 //type anyithinbg else nothing heapens
 //quit - console - OK, YOU QUIT THE APP
-let todos = ['WRITE CODE'];
+const todos = ['WRITE CODE'];
 let input = prompt("What would you like to do?");
 while (input.toLowerCase() !== "quit" && input.toLowerCase() !== "q") {
     if (input.toLowerCase() === "new") {
@@ -27,9 +27,14 @@ while (input.toLowerCase() !== "quit" && input.toLowerCase() !== "q") {
         input = prompt("What would you like to do?");
 
     } else if (input.toLowerCase() === "delete") {
-        let indexOfDelete = prompt("Enter index of todo to delete");
-        todos.splice(parseInt(indexOfDelete) - 1, 1);
-        console.log("Todo Removed");
+        let index = parseInt(prompt("Enter index of todo to delete"));
+        if (!Number.isNaN(index) && index >= 1 && index <= todos.length) {
+            todos.splice(index - 1, 1);
+            console.log("Todo Removed");
+        } else {
+            console.log("Unkown index");
+        }
+
         input = prompt("What would you like to do?");
 
     } else {
