@@ -28,7 +28,11 @@ while(!input){
        for(let i = 0; i < todos.length; i++){
         console.log(`${i}: ${todos[i]}`);
        }
-    
+    }
+    if (input.toLowerCase() === "delete"){
+        let indexOfDelete = prompt("Enter index of todo to delete");
+        todos.splice(parseInt(indexOfDelete), 1);
+        console.log("Todo Removed");
     }
 
     input = "";
