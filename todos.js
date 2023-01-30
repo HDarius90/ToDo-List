@@ -11,13 +11,19 @@
 //console - Todo Removed
 //type anyithinbg else nothing heapens
 //quit - console - OK, YOU QUIT THE APP
-
-let input = prompt("What would you like to do?");
+let todo = ['WRITE CODE'];
+let input = "";
 while(!input){
     input = prompt("What would you like to do?");
     if (input.toLowerCase() === "quit"){
         console.log("OK, YOU QUIT THE APP");
         break;
     }
+    if (input.toLowerCase() === "new"){
+        let newTodo = prompt("Enter new todo");
+        todo.push(newTodo);
+        console.log(`${newTodo} added to list`);
+    }
+
     input = "";
 }
